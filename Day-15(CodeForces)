@@ -1,0 +1,23 @@
+//CodeForces Problem- Boy or Girl 236A
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String username = scanner.nextLine();
+        scanner.close();
+
+        Set<Character> distinctCharacters = new HashSet<>();
+        for (char c : username.toCharArray()) {
+            distinctCharacters.add(c);
+        }
+
+        if (distinctCharacters.size() % 2 == 0) {
+            System.out.println("CHAT WITH HER!");
+        } else {
+            System.out.println("IGNORE HIM!");
+        }
+    }
+}
