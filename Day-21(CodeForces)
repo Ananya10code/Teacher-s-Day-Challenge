@@ -1,0 +1,33 @@
+//CodeForces Problem - Twins 160A
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Twins {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        Integer[] a = new Integer[n];
+        int totalSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
+            totalSum += a[i];
+        }
+
+        Arrays.sort(a, Collections.reverseOrder());
+
+        int mySum = 0;
+        int coinsCount = 0;
+
+        for (int i = 0; i < n; i++) {
+            mySum += a[i];
+            coinsCount++;
+            if (mySum > totalSum / 2) {
+                break;
+            }
+        }
+        System.out.println(coinsCount);
+        scanner.close();
+    }
+}
