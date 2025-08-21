@@ -1,0 +1,51 @@
+//CodeForces Problem- Petya And CountrySide 66B
+import java.util.Scanner;
+
+public class PetyaAndCountryside {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int n = scanner.nextInt();
+        
+        int[] heights = new int[n];
+        for (int i = 0; i < n; i++) {
+            heights[i] = scanner.nextInt();
+        }
+        
+        if (n <= 1) {
+            System.out.println(n);
+            return;
+        }
+        
+        int maxSections = 0;
+        
+        for (int i = 0; i < n; i++) {
+            int currentSections = 1;
+            
+            for (int j = i - 1; j >= 0; j--) {
+                if (heights[j] <= heights[j + 1]) {
+                    currentSections++;
+                } else {
+                    break;
+                }
+            }
+            
+            for (int j = i + 1; j < n; j++) {
+                if (heights[j] <= heights[j - 1]) {
+                    currentSections++;
+                } else {
+                    break;
+                }
+            }
+            
+            if (currentSections > maxSections) {
+                maxSections = currentSections;
+            }
+        }
+        
+        System.out.println(maxSections);
+        
+        scanner.close();
+    }
+}
