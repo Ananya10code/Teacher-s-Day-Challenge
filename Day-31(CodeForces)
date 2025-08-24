@@ -1,0 +1,22 @@
+//CodeForces Problem - Magnets 344A
+import java.util.Scanner;
+
+public class Magnets {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int groups = 1;
+        int prevMagnet = sc.nextInt();
+
+        for (int i = 1; i < n; i++) {
+            int currentMagnet = sc.nextInt();
+            if (currentMagnet != prevMagnet) {
+                groups++;
+            }
+            prevMagnet = currentMagnet;
+        }
+
+        System.out.println(groups);
+        sc.close();
+    }
+}
