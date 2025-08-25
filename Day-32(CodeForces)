@@ -1,0 +1,24 @@
+//CodeForces Problem- Nearly Lucky Number 110A
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String nStr = scanner.nextLine();
+        int luckyCount = 0;
+        
+        for (char c : nStr.toCharArray()) {
+            if (c == '4' || c == '7') {
+                luckyCount++;
+            }
+        }
+        
+        if (luckyCount == 4 || luckyCount == 7) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+        
+        scanner.close();
+    }
+}
