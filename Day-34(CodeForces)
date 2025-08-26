@@ -1,0 +1,24 @@
+//CodeForces Problem - Ultra-Fast Mathematician 61A
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int sum = 0;
+        int placeValue = 1;
+        while (a > 0 || b > 0) {
+            int digitA = a % 10;
+            int digitB = b % 10;
+            if (digitA != digitB) {
+                sum += placeValue;
+            }
+            a /= 10;
+            b /= 10;
+            placeValue *= 10;
+        }
+        System.out.println(sum);
+        scanner.close();
+    }
+}
