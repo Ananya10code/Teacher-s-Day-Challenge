@@ -1,0 +1,25 @@
+//CodeForces Problem- I_love_%username% 155A
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int firstScore = scanner.nextInt();
+        int minScore = firstScore;
+        int maxScore = firstScore;
+        int amazingPerformances = 0;
+        for (int i = 1; i < n; i++) {
+            int currentScore = scanner.nextInt();
+            if (currentScore > maxScore) {
+                amazingPerformances++;
+                maxScore = currentScore;
+            } else if (currentScore < minScore) {
+                amazingPerformances++;
+                minScore = currentScore;
+            }
+        }
+        System.out.println(amazingPerformances);
+        scanner.close();
+    }
+}
