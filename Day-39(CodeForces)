@@ -1,0 +1,54 @@
+//CodeForces Problem- Arrival of the General 144A
+import java.util.Scanner;
+
+public class ArrivalOfTheGeneral {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int n = scanner.nextInt();
+
+        int[] heights = new int[n];
+        int max_height = 0;
+        int min_height = 101;
+
+        for (int i = 0; i < n; i++) {
+            heights[i] = scanner.nextInt();
+            if (heights[i] > max_height) {
+                max_height = heights[i];
+            }
+            if (heights[i] < min_height) {
+                min_height = heights[i];
+            }
+        }
+
+        int max_index = -1;
+        int min_index = -1;
+
+        for (int i = 0; i < n; i++) {
+            if (heights[i] == max_height) {
+                max_index = i;
+                break;
+            }
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            if (heights[i] == min_height) {
+                min_index = i;
+                break;
+            }
+        }
+
+        int swaps = 0;
+
+        swaps += max_index;
+
+        swaps += (n - 1) - min_index;
+
+        if (max_index > min_index) {
+            swaps--;
+        }
+
+        System.out.println(swaps);
+    }
+}
