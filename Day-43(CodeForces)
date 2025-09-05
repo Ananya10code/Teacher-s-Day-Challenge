@@ -1,0 +1,49 @@
+//CodeForces Problem - cAPS lOCK 131A
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.next();
+        scanner.close();
+
+        if (allCapsExceptFirst(s) || allCaps(s)) {
+            System.out.println(toggleCase(s));
+        } else {
+            System.out.println(s);
+        }
+    }
+
+    private static boolean allCapsExceptFirst(String s) {
+        if (s.isEmpty()) {
+            return false;
+        }
+        for (int i = 1; i < s.length(); i++) {
+            if (Character.isLowerCase(s.charAt(i))) {
+                return false;
+            }
+        }
+        return Character.isLowerCase(s.charAt(0));
+    }
+
+    private static boolean allCaps(String s) {
+        for (char c : s.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static String toggleCase(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (Character.isUpperCase(chars[i])) {
+                chars[i] = Character.toLowerCase(chars[i]);
+            } else {
+                chars[i] = Character.toUpperCase(chars[i]);
+            }
+        }
+        return new String(chars);
+    }
+}
